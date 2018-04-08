@@ -165,7 +165,7 @@ __inline
 __attribute__ ((__gnu_inline__))
 #endif
 #endif
-const struct kconf_id *
+static const struct kconf_id *
 kconf_id_lookup (register const char *str, register unsigned int len)
 {
   enum
