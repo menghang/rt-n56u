@@ -55,12 +55,20 @@ ifeq ($(CONFIG_RT_FIRST_CARD),7612)
 	$(ROMFSINST) /etc_ro/Wireless/MT7612E_EEPROM.bin
 else
 ifeq ($(CONFIG_RT_SECOND_CARD),7612)
+ifneq ($(CONFIG_FIRMWARE_PRODUCT_ID),"WR1200JS")
 	$(ROMFSINST) /etc_ro/Wireless/MT7612E_EEPROM.bin
+else
+	$(ROMFSINST) $(CUR_DIR)/WR1200JS/MT7612E_EEPROM.bin /etc_ro/Wireless/MT7612E_EEPROM.bin
+endif
 endif
 endif
 endif
 ifdef CONFIG_MT76X3_AP
+ifneq ($(CONFIG_FIRMWARE_PRODUCT_ID),"WR1200JS")
 	$(ROMFSINST) /etc_ro/Wireless/MT7603E_EEPROM.bin
+else
+	$(ROMFSINST) $(CUR_DIR)/WR1200JS/MT7603E_EEPROM.bin /etc_ro/Wireless/MT7603E_EEPROM.bin
+endif
 endif
 
 romfs.post::
